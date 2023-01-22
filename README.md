@@ -1,2 +1,2 @@
 # load-testing-comparison
-Basic Kotlin with blocking VS Kotlin with corutines VS Kotlin with WebFlux
+Basic Kotlin with blocking VS Kotlin with coroutines VS Kotlin with WebFlux
