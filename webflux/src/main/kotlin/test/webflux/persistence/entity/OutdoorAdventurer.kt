@@ -1,4 +1,4 @@
-package domain
+package test.webflux.persistence.entity
 
 import java.util.*
 

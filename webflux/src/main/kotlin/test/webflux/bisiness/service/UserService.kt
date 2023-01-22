@@ -11,7 +11,7 @@ class UserService(
 ) {
     private val log = LoggerFactory.getLogger(UserService::class.java)
 
-    fun createUser(userEvent: UserEventMessage): Mono<UserMetadataRegistrationResult> {
+/*    fun createUser(userEvent: UserEventMessage): Mono<UserMetadataRegistrationResult> {
         log.info("Try to create user $userEvent")
         return Mono.just(userEvent)
             .mapEventToUser()
@@ -21,5 +21,5 @@ class UserService(
                 userAuthEventProducer.send(it)
                 it
             }
-    }
+    }*/
 }
