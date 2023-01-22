@@ -1,11 +1,11 @@
-package test.corutines
+package test.coroutines
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class CorutinesApplication
+class CoroutinesApplication
 
 fun main(args: Array<String>) {
-    runApplication<CorutinesApplication>(*args)
+    runApplication<CoroutinesApplication>(*args)
 }

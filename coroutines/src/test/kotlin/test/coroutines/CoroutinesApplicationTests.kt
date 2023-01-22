@@ -1,12 +1,11 @@
-package test.corutines
+package test.coroutines
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class CorutinesApplicationTests {
+class CoroutinesApplicationTests {
 
     @Test
-    fun contextLoads() {
-    }
+    fun contextLoads() = Unit
 }
