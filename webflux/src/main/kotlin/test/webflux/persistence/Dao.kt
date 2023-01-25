@@ -1,5 +1,8 @@
 package test.webflux.persistence
 
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.reactive.asFlow
+import kotlinx.coroutines.reactive.awaitFirst
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Flux
@@ -14,15 +17,15 @@ class Dao(
 ) {
     private val log = LoggerFactory.getLogger(Dao::class.java)
 
-    fun saveUser(user: OutdoorAdventurer): Mono<OutdoorAdventurer> {
-        return userRepository.save(user)
+    suspend fun saveUser(user: OutdoorAdventurer): OutdoorAdventurer {
+        return userRepository.save(user).awaitFirst()
     }
 
-    fun getUserById(userId: UUID): Mono<OutdoorAdventurer> {
-        return userRepository.findById(userId)
+    suspend fun getUserById(userId: UUID): OutdoorAdventurer {
+        return userRepository.findById(userId).awaitFirst()
     }
 
-    fun getAllUser(): Flux<OutdoorAdventurer> {
-        return userRepository.findAll()
+    fun getAllUser(): Flow<OutdoorAdventurer> {
+        return userRepository.findAll().asFlow()
     }
 }

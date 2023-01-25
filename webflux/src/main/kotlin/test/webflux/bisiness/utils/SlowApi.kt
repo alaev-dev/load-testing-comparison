@@ -1,4 +1,4 @@
-package test.webflux.bisiness.util
+package test.webflux.bisiness.utils
 
 private const val TIME_DURATION = 2000L
 

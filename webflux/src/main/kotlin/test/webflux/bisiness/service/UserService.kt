@@ -2,8 +2,10 @@ package test.webflux.bisiness.service
 
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
-import reactor.core.publisher.Mono
+import test.webflux.bisiness.dto.UserDto
+import test.webflux.bisiness.utils.map
 import test.webflux.persistence.Dao
+import test.webflux.persistence.entity.OutdoorAdventurer
 
 @Service
 class UserService(
@@ -11,15 +13,8 @@ class UserService(
 ) {
     private val log = LoggerFactory.getLogger(UserService::class.java)
 
-/*    fun createUser(userEvent: UserEventMessage): Mono<UserMetadataRegistrationResult> {
+    suspend fun createUser(userEvent: UserDto): OutdoorAdventurer {
         log.info("Try to create user $userEvent")
-        return Mono.just(userEvent)
-            .mapEventToUser()
-            .flatMap { dao.saveUser(it) }
-            .mapUserMetadataToUserAuthEvent(userEvent.country)
-            .map {
-                userAuthEventProducer.send(it)
-                it
-            }
-    }*/
+        return dao.saveUser(map(userEvent))
+    }
 }
